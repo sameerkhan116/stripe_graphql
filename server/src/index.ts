@@ -26,7 +26,13 @@ const startServer = async () => {
       saveUninitialized: false,
     }),
   );
-  server.applyMiddleware({ app });
+  server.applyMiddleware({
+    app,
+    cors: {
+      credentials: true,
+      origin: 'http://localhost:3000',
+    },
+  });
 
   app.listen({ port: PORT }, () => {
     console.log(`Server is running on http://localhost:${PORT}/graphql`);
