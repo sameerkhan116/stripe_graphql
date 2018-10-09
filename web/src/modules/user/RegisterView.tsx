@@ -1,25 +1,19 @@
-import { gql } from 'apollo-boost';
-import * as React from 'react';
-import { Mutation } from 'react-apollo';
-import { RouteComponentProps } from 'react-router';
-import { RegisterMutation, RegisterMutationVariables } from '../../schemaTypes';
-
-const registerMutation = gql`
-  mutation RegisterMutation($email: String!, $password: String!) {
-    register(email: $email, password: $password)
-  }
-`;
+import * as React from "react";
+import { Mutation } from "react-apollo";
+import { RouteComponentProps } from "react-router";
+import { registerMutation } from "../../graphql/mutations";
+import { RegisterMutation, RegisterMutationVariables } from "../../schemaTypes";
 
 export class RegisterView extends React.PureComponent<RouteComponentProps<{}>> {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: ""
   };
 
   handleChange = (e: any) => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -33,10 +27,10 @@ export class RegisterView extends React.PureComponent<RouteComponentProps<{}>> {
         {mutate => (
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
             <div>
@@ -60,10 +54,10 @@ export class RegisterView extends React.PureComponent<RouteComponentProps<{}>> {
               <button
                 onClick={async () => {
                   const response = await mutate({
-                    variables: this.state,
+                    variables: this.state
                   });
                   console.log(response);
-                  this.props.history.push('/login');
+                  this.props.history.push("/login");
                 }}
               >
                 Register
