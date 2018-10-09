@@ -1,28 +1,29 @@
-import { gql } from 'apollo-boost';
-import * as React from 'react';
-import { Mutation } from 'react-apollo';
-import { RouteComponentProps } from 'react-router';
-import { LoginMutation, LoginMutationVariables } from '../../schemaTypes';
+import { gql } from "apollo-boost";
+import * as React from "react";
+import { Mutation } from "react-apollo";
+import { RouteComponentProps } from "react-router";
+import { LoginMutation, LoginMutationVariables } from "../../schemaTypes";
 
 const loginMutation = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       id
       email
+      type
     }
   }
 `;
 
 export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: ""
   };
 
   handleChange = (e: any) => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -34,10 +35,10 @@ export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
         {mutate => (
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
             <div>
@@ -61,10 +62,10 @@ export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
               <button
                 onClick={async () => {
                   const response = await mutate({
-                    variables: this.state,
+                    variables: this.state
                   });
                   console.log(response);
-                  this.props.history.push('/me');
+                  this.props.history.push("/account");
                 }}
               >
                 Login

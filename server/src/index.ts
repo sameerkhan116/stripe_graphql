@@ -40,4 +40,4 @@ const startServer = async () => {
   });
 };
 
-startServer();
+startServer().catch((err) => console.log(err));

@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 
-@Entity('users')
+@Entity("users")
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('text')
+  @Column("text")
   email: string;
 
   @Column("text", { nullable: true })
@@ -14,6 +14,6 @@ export class User extends BaseEntity {
   @Column("text", { default: "free-trial" })
   type: string;
 
-  @Column('text')
+  @Column("text")
   password: string;
 }

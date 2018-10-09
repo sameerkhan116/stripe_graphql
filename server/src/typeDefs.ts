@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
   type Query {
@@ -8,6 +8,7 @@ export const typeDefs = gql`
   type User {
     id: ID!
     email: String!
+    type: String!
   }
 
   type Mutation {

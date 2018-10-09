@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { SubscribeUser } from './account/SubscribeUser';
-import { LoginView } from './modules/user/LoginView';
-import { MeView } from './modules/user/MeView';
-import { RegisterView } from './modules/user/RegisterView';
+import * as React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Account } from "./account/Account";
+import { LoginView } from "./modules/user/LoginView";
+import { RegisterView } from "./modules/user/RegisterView";
+import { PaidUser } from './account/PaidUser';
 
 export class Routes extends React.PureComponent {
   public render() {
@@ -12,8 +12,8 @@ export class Routes extends React.PureComponent {
         <Switch>
           <Route path="/login" component={LoginView} />
           <Route path="/register" component={RegisterView} />
-          <Route path="/me" component={MeView} />
-          <Route path="/subscription" component={SubscribeUser} />
+          <Route path="/account" component={Account} />
+          <Route path="/paid-user" component={PaidUser} />
         </Switch>
       </BrowserRouter>
     );
