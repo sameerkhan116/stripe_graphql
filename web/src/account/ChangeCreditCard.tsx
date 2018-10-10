@@ -1,17 +1,17 @@
 import * as React from "react";
 import { Mutation } from "react-apollo";
 import StripeCheckout from "react-stripe-checkout";
-import { createSubscriptionMutation } from "../graphql/mutations";
+import { changeCreditCardMutation } from "../graphql/mutations";
 import {
-  CreateSubscriptionMutation,
-  CreateSubscriptionMutationVariables
+  ChangeCreditCardMutation,
+  ChangeCreditCardMutationVariables
 } from "../schemaTypes";
 
-export class SubscribeUser extends React.PureComponent {
+export class ChangeCreditCard extends React.PureComponent {
   render() {
     return (
-      <Mutation<CreateSubscriptionMutation, CreateSubscriptionMutationVariables>
-        mutation={createSubscriptionMutation}
+      <Mutation<ChangeCreditCardMutation, ChangeCreditCardMutationVariables>
+        mutation={changeCreditCardMutation}
       >
         {mutate => (
           <StripeCheckout

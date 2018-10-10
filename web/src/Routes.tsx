@@ -11,7 +11,7 @@ export class Routes extends React.PureComponent {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact={true} path="/login" component={LoginView} />
+          <Route path="/login" component={LoginView} />
           <Route
             path="/"
             render={() => (

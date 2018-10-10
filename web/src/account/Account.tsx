@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import { meQuery } from "../graphql/queries";
 import { MeQuery } from "../schemaTypes";
+import { ChangeCreditCard } from './ChangeCreditCard';
 import { SubscribeUser } from "./SubscribeUser";
 
 export class Account extends React.PureComponent {
@@ -23,7 +24,12 @@ export class Account extends React.PureComponent {
           if (data.me.type === "free-trial") {
             return <SubscribeUser />;
           }
-          return <Redirect to="/paid-user" />;
+          return (
+            <div>
+              <div>Your current last 4 digits: {data.me.ccLast4}</div>
+              <ChangeCreditCard />
+            </div>
+          );
         }}
       </Query>
     );
