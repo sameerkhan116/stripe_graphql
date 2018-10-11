@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import { meQuery } from "../graphql/queries";
 import { MeQuery } from "../schemaTypes";
+import { CancelSubscription } from './CancelSubscription';
 import { ChangeCreditCard } from './ChangeCreditCard';
 import { SubscribeUser } from "./SubscribeUser";
 
@@ -28,6 +29,7 @@ export class Account extends React.PureComponent {
             <div>
               <div>Your current last 4 digits: {data.me.ccLast4}</div>
               <ChangeCreditCard />
+              <CancelSubscription />
             </div>
           );
         }}

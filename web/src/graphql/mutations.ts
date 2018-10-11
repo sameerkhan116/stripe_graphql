@@ -36,3 +36,12 @@ export const changeCreditCardMutation = gql`
   }
   ${userFragment}
 `;
+
+export const cancelSubscriptionMutation = gql`
+  mutation CancelSubscriptionMutation {
+    cancelSubscription {
+      ...UserInfo
+    }
+  }
+  ${userFragment}
+`;

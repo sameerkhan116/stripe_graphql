@@ -87,6 +87,24 @@ export interface ChangeCreditCardMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: CancelSubscriptionMutation
+// ====================================================
+
+export interface CancelSubscriptionMutation_cancelSubscription {
+  id: string;
+  email: string;
+  type: string;
+  ccLast4: string | null;
+}
+
+export interface CancelSubscriptionMutation {
+  cancelSubscription: CancelSubscriptionMutation_cancelSubscription | null;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: MeQuery
 // ====================================================
 
