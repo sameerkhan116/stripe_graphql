@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Mutation } from "react-apollo";
 import { RouteComponentProps } from "react-router";
+
 import { loginMutation } from "../../graphql/mutations";
 import { meQuery } from "../../graphql/queries";
 import { LoginMutation, LoginMutationVariables } from "../../schemaTypes";
+import {RedButton} from '../../ui/RedButton';
 
 export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
   state = {
@@ -61,7 +63,7 @@ export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
               />
             </div>
             <div>
-              <button
+              <RedButton
                 onClick={async () => {
                   // optional to reset cache
                   await client.resetStore();
@@ -73,7 +75,7 @@ export class LoginView extends React.PureComponent<RouteComponentProps<{}>> {
                 }}
               >
                 Login
-              </button>
+              </RedButton>
             </div>
           </div>
         )}
