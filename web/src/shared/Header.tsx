@@ -1,8 +1,9 @@
-import * as React from "react";
-import { Query } from "react-apollo";
-import { Link } from "react-router-dom";
-import { meQuery } from "../graphql/queries";
-import { MeQuery } from "../schemaTypes";
+import * as React from 'react';
+import { Query } from 'react-apollo';
+import { Link } from 'react-router-dom';
+import { HeaderButton } from 'src/ui/HeaderButton';
+import { meQuery } from '../graphql/queries';
+import { MeQuery } from '../schemaTypes';
 
 export class Header extends React.PureComponent {
   render() {
@@ -10,15 +11,18 @@ export class Header extends React.PureComponent {
       <div
         style={{
           height: 50,
-          width: "100%",
-          backgroundColor: "#fafafa",
-          display: "flex",
-          justifyContent: "space-around",
-          padding: 10
+          width: '100%',
+          backgroundColor: 'rgb(255, 254, 252)',
+          display: 'flex',
+          justifyContent: 'space-around',
+          padding: 10,
+          alignItems: 'center',
         }}
       >
         <Link to="/">
-          <h2>Stripe Example</h2>
+          <HeaderButton style={{ fontSize: 26, fontWeight: 'bold' }}>
+            Stripe Example
+          </HeaderButton>
         </Link>
         <Query<MeQuery> query={meQuery}>
           {({ data, loading }) => {
@@ -28,12 +32,12 @@ export class Header extends React.PureComponent {
             if (!data.me) {
               return (
                 <div>
-                  <div>
-                    <Link to="/login">Login</Link>
-                  </div>
-                  <div>
-                    <Link to="/register">Register</Link>
-                  </div>
+                  <Link to="/login">
+                    <HeaderButton>Login</HeaderButton>
+                  </Link>
+                  <Link to="/register">
+                    <HeaderButton>Register</HeaderButton>
+                  </Link>
                 </div>
               );
             }
